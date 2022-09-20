@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-//Esercizio:
+﻿//Esercizio:
 //Si vuole progettare un sistema per la gestione di una biblioteca. Gli utenti si possono registrare al sistema, fornendo:
 //    cognome,
 //    nome,
@@ -22,33 +20,31 @@
 //L’utente deve poter eseguire delle ricerche per codice o per titolo e, eventualmente, effettuare dei prestiti registrando il periodo (Dal/Al) del prestito e il documento.
 //Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di un utente.
 
-// Lista di utenti registrati
 using System.Runtime.ConstrainedExecution;
 
-List <utente> listaIscritti = new List <utente>();
+// Lista di utenti registrati
+List<Utente> listaIscritti = new List <Utente>();
 
 // Lista di libri
-List <libro> listaLibri = new List <libro>();
+List <Libro> listaLibri = new List <Libro>();
 
 // Lista di DVD
 List <DVD> listaDVD = new List <DVD>();
 
-
-utente utente1 = new utente("Rossi", "Mario","rossi.mario@gmail.com","Password", "0583142536" );
-utente utente2 = new utente("Rossi", "Paolo", "Rossi.Paolo@gmail.com", "Password", "0583142536");
-utente utente3 = new utente("Bianchi", "Mario", "Bianchi.Mario@gmail.com", "Password", "0583142536");
-
+// Creazione di utenti di test
+Utente utente1 = new Utente("Rossi", "Mario","rossi.mario@gmail.com","Password", "0583142536" );
+Utente utente2 = new Utente("Rossi", "Paolo", "Rossi.Paolo@gmail.com", "Password", "0583142536");
+Utente utente3 = new Utente("Bianchi", "Mario", "Bianchi.Mario@gmail.com", "Password", "0583142536");
 listaIscritti.Add(utente1);
 listaIscritti.Add(utente2);
 listaIscritti.Add(utente3);
 
-
-libro libro1 = new libro("1000000", "Titolo Libro", 2020, "Settore test", true, 2,"Autore Libro",200);
-
+// Creazione di libri di test
+Libro libro1 = new Libro("1000000", "Titolo Libro", 2020, "Settore test", true, 2,"Autore Libro",200);
 listaLibri.Add(libro1);
 
+// Creazione di DVD di test
 DVD DVD1 = new DVD(180, "1000000", "Titolo DVD", 2020, "Settore test", true, 2, "Autore DVD", 200);
-
 listaDVD.Add(DVD1);
 
 
