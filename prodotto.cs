@@ -23,12 +23,13 @@
 //Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di un utente.
 
 // Lista di utenti registrati
-using System.Runtime.ConstrainedExecution;
-
-List<> iscritti = new List<>;
-
-// Lista di libri
-List<libro> listaLibri = new List<libro>;
-
-// Lista di DVD
-List<DVD> listaDVD = new List<DVD>;
+public class prodotto
+{
+    private string codice;
+    private string titolo;
+    private int anno;
+    private string settore;
+    private bool èDisponibile;
+    private int scaffale;
+    private string autore;
+}
