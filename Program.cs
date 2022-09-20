@@ -53,13 +53,16 @@ Console.WriteLine("Cosa vuoi fare?");
 Console.WriteLine("1 - Stampare Lista Utenti Registrari");
 Console.WriteLine("2 - Stampare Lista Libri");
 Console.WriteLine("3 - Stampare Lista DVD");
+Console.WriteLine("4 - Prendi prodotto in prestito");
+
 
 int scelta =  Convert.ToInt32(Console.ReadLine());
 
 switch (scelta)
 {
 	case 1:
-		foreach (var utente in listaIscritti)
+        #region
+        foreach (var utente in listaIscritti)
 		{
             Console.WriteLine("------------");
             Console.WriteLine("NOME: "  + utente.Nome); 
@@ -68,11 +71,40 @@ switch (scelta)
             Console.WriteLine("------------");
         }
 		break;
+        #endregion
 
-	case 2:
-		break;
-
+    case 2:
+        #region
+        foreach (var libro in listaLibri)
+        {
+            Console.WriteLine("------------");
+            Console.WriteLine("TITOLO: " + libro.Titolo);
+            Console.WriteLine("AUTORE: " + libro.Autore);
+            Console.WriteLine("GENERE: " + libro.Settore);
+            Console.WriteLine("ANNO: " + libro.Anno);
+            Console.WriteLine("PAGINE: " + libro.Pagine);
+            Console.WriteLine("SCAFFALE: " + libro.Scaffale);
+            Console.WriteLine("------------");
+        }
+        break;
+        #endregion
     case 3:
+        #region
+        foreach (var dvd in listaDVD)
+        {
+            Console.WriteLine("------------");
+            Console.WriteLine("TITOLO: " + dvd.Titolo);
+            Console.WriteLine("AUTORE: " + dvd.Autore);
+            Console.WriteLine("GENERE: " + dvd.Settore);
+            Console.WriteLine("ANNO: " + dvd.Anno);
+            Console.WriteLine("DURATA: " + dvd.Durata + " Minuti");
+            Console.WriteLine("SCAFFALE: " + dvd.Scaffale);
+            Console.WriteLine("------------");
+        }
+        break;
+    #endregion
+
+    case 4:
         break;
 
     default:
