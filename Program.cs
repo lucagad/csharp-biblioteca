@@ -56,7 +56,7 @@ Console.WriteLine("Cosa vuoi fare?");
 Console.WriteLine("1 - Stampare Lista Utenti Registrari");
 Console.WriteLine("2 - Stampare Lista Libri");
 Console.WriteLine("3 - Stampare Lista DVD");
-Console.WriteLine("4 - Prendi prodotto in prestito");
+Console.WriteLine("4 - Prendi in prestito un prodotto");
 
 
 int scelta =  Convert.ToInt32(Console.ReadLine());
@@ -95,6 +95,7 @@ switch (scelta)
         }
         break;
         #endregion
+
     case 3:
         #region
         foreach (var dvd in listaDVD)
@@ -115,6 +116,31 @@ switch (scelta)
     #endregion
 
     case 4:
+        Console.WriteLine(" ");
+        Console.WriteLine("Inserisci il tuo Nome");
+        string nome = Console.ReadLine();
+
+        Console.WriteLine(" ");
+        Console.WriteLine("Inserisci il tuo Cognome");
+        string cognome = Console.ReadLine();
+
+        foreach (var utente in listaIscritti)
+        {
+            if ((utente.Nome == nome) & (utente.Cognome == cognome)){
+                Console.WriteLine(" ");
+                Console.WriteLine("------------");
+                Console.WriteLine("Essendo registrato puoi procedere con la scelta del prodotto!");
+
+                break;
+            } else{
+                Console.WriteLine(" ");
+                Console.WriteLine("------------");
+                Console.WriteLine("NON essendo registrato NON puoi procedere con la scelta del prodotto!");
+
+                break;
+            }
+        }
+
         break;
 
     default:
