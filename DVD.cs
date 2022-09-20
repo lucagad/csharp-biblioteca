@@ -26,4 +26,9 @@
 public class DVD : prodotto
 {
     private int durata;
+
+    public DVD(int durata, string codice, string titolo, int anno, string settore, bool èDisponibile, int scaffale, string autore, int pagine) : base(codice, titolo, anno, settore, èDisponibile, scaffale, autore)
+    {
+        this.durata = durata;
+    }
 }

@@ -31,4 +31,12 @@ public class utente
     private string password;
     private string telefono;
 
+    public utente(string cognome, string nome, string email, string password, string telefono)
+    {
+        this.cognome = cognome;
+        this.nome = nome;
+        this.email = email;
+        this.password = password;
+        this.telefono = telefono;
+    }
 }

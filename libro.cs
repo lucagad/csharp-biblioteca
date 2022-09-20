@@ -26,4 +26,8 @@
 public class libro : prodotto
 {
     private int pagine;
+    public libro(string codice, string titolo, int anno, string settore, bool èDisponibile, int scaffale, string autore,int pagine) : base(codice,titolo,anno,settore,èDisponibile,scaffale,autore)    
+    {
+        this.pagine = pagine;
+    }
 }

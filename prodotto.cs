@@ -32,4 +32,15 @@ public class prodotto
     private bool èDisponibile;
     private int scaffale;
     private string autore;
+
+    public prodotto(string codice, string titolo, int anno, string settore, bool èDisponibile, int scaffale, string autore)
+    {
+        this.codice = codice;
+        this.titolo = titolo;
+        this.anno = anno;
+        this.settore = settore;
+        this.èDisponibile = èDisponibile;
+        this.scaffale = scaffale;
+        this.autore = autore;
+    }
 }

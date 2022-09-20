@@ -25,10 +25,10 @@
 // Lista di utenti registrati
 using System.Runtime.ConstrainedExecution;
 
-List<> iscritti = new List<>;
+List<utente> iscritti = new List<utente>();
 
 // Lista di libri
-List<libro> listaLibri = new List<libro>;
+List<libro> listaLibri = new List<libro>();
 
 // Lista di DVD
-List<DVD> listaDVD = new List<DVD>;
+List<DVD> listaDVD = new List<DVD>();
