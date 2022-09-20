@@ -51,71 +51,31 @@ DVD DVD2 = new DVD(180, "2000002", "Titolo DVD 2", 2020, "Thriller", false, 2, "
 listaDVD.Add(DVD1);
 
 
-Console.WriteLine("Benvenuto!");
-Console.WriteLine("Cosa vuoi fare?");
-Console.WriteLine("1 - Stampare Lista Utenti Registrari");
-Console.WriteLine("2 - Stampare Lista Libri");
-Console.WriteLine("3 - Stampare Lista DVD");
-Console.WriteLine("4 - Prendi in prestito un prodotto");
+int scelta = MenuIniziale();
 
-
-int scelta =  Convert.ToInt32(Console.ReadLine());
 
 switch (scelta)
 {
 	case 1:
         #region
-        foreach (var utente in listaIscritti)
-		{
-            Console.WriteLine(" ");
-            Console.WriteLine("------------");
-            Console.WriteLine("NOME: "  + utente.Nome); 
-			Console.WriteLine("COGNOME: " + utente.Cognome);
-            Console.WriteLine("EMAIL: " + utente.Email);
-            Console.WriteLine("------------");
-        }
-		break;
+        StampaUtenti();
+        break;
         #endregion
 
     case 2:
         #region
-        foreach (var libro in listaLibri)
-        {
-            Console.WriteLine(" ");
-            Console.WriteLine("------------");
-            Console.WriteLine("TITOLO: " + libro.Titolo);
-            Console.WriteLine("AUTORE: " + libro.Autore);
-            Console.WriteLine("GENERE: " + libro.Settore);
-            Console.WriteLine("ANNO: " + libro.Anno);
-            Console.WriteLine("PAGINE: " + libro.Pagine);
-            Console.WriteLine("SCAFFALE: " + libro.Scaffale);
-            if (libro.EDisponibile == true) { Console.WriteLine("DISPONIBILE: SI");}
-            else Console.WriteLine("DISPONIBILE: NO");
-            Console.WriteLine("------------");
-        }
+        StampaLibri();
         break;
         #endregion
 
     case 3:
         #region
-        foreach (var dvd in listaDVD)
-        {
-            Console.WriteLine(" ");
-            Console.WriteLine("------------");
-            Console.WriteLine("TITOLO: " + dvd.Titolo);
-            Console.WriteLine("AUTORE: " + dvd.Autore);
-            Console.WriteLine("GENERE: " + dvd.Settore);
-            Console.WriteLine("ANNO: " + dvd.Anno);
-            Console.WriteLine("DURATA: " + dvd.Durata + " Minuti");
-            Console.WriteLine("SCAFFALE: " + dvd.Scaffale);
-            if (dvd.EDisponibile == true) { Console.WriteLine("DISPONIBILE: SI"); }
-            else Console.WriteLine("DISPONIBILE: NO");
-            Console.WriteLine("------------");
-        }
+        StampaDVD();
         break;
     #endregion
 
     case 4:
+
         Console.WriteLine(" ");
         Console.WriteLine("Inserisci il tuo Nome");
         string nome = Console.ReadLine();
@@ -135,9 +95,37 @@ switch (scelta)
                 Console.WriteLine(" ");
                 Console.WriteLine("------------");
                 Console.WriteLine("Essendo registrato puoi procedere con la scelta del prodotto!");
+                Console.WriteLine(" ");
 
-                break;
+                // RICHIAMO LA FUNZIONE PER APRIRE IL MENU DI SELEZIONE DEL PRODOTTO LIBRO/DVD
+                int sceltaTipoPrestito = MenuTipoPrestito();
+
+                switch (sceltaTipoPrestito)
+                {
+                    //DVD
+                    case 1:
+
+                        // 1 NOME / 2 CODICE
+                        int sceltaTipoRicercaDVD = MenuRicercaProdotto();
+
+
+                        break;
+
+                    // LIBRO
+                    case 2:
+
+                        // 1 NOME / 2 CODICE
+                        int sceltaTipoRicercaLibro = MenuRicercaProdotto();
+
+                        break;
+
+                    default:
+                        break;
+
+                }
+
             } else{
+
                 Console.WriteLine(" ");
                 Console.WriteLine("------------");
                 Console.WriteLine("NON essendo registrato NON puoi procedere con la scelta del prodotto!");
@@ -150,4 +138,108 @@ switch (scelta)
 
     default:
 		break;
+}
+
+// Stampa tutti i Libri del "DB"
+void StampaLibri()
+{
+    Console.WriteLine("------------");
+    Console.WriteLine("--- LISTA DEI LIBRI ---");
+
+
+    foreach (var libro in listaLibri)
+    {
+        Console.WriteLine(" ");
+        Console.WriteLine("------------");
+        Console.WriteLine("TITOLO: " + libro.Titolo);
+        Console.WriteLine("AUTORE: " + libro.Autore);
+        Console.WriteLine("GENERE: " + libro.Settore);
+        Console.WriteLine("ANNO: " + libro.Anno);
+        Console.WriteLine("PAGINE: " + libro.Pagine);
+        Console.WriteLine("SCAFFALE: " + libro.Scaffale);
+        if (libro.EDisponibile == true) { Console.WriteLine("DISPONIBILE: SI"); }
+        else Console.WriteLine("DISPONIBILE: NO");
+        Console.WriteLine("------------");
+    }
+}
+
+// Stampa tutti i DVD del "DB"
+void StampaDVD()
+{
+    Console.WriteLine("------------");
+    Console.WriteLine("--- LISTA DEI DVD ---");
+
+    foreach (var dvd in listaDVD)
+    {
+        Console.WriteLine(" ");
+        Console.WriteLine("------------");
+        Console.WriteLine("TITOLO: " + dvd.Titolo);
+        Console.WriteLine("AUTORE: " + dvd.Autore);
+        Console.WriteLine("GENERE: " + dvd.Settore);
+        Console.WriteLine("ANNO: " + dvd.Anno);
+        Console.WriteLine("DURATA: " + dvd.Durata + " Minuti");
+        Console.WriteLine("SCAFFALE: " + dvd.Scaffale);
+        if (dvd.EDisponibile == true) { Console.WriteLine("DISPONIBILE: SI"); }
+        else Console.WriteLine("DISPONIBILE: NO");
+        Console.WriteLine("------------");
+    }
+}
+
+// Stampa tutti gli utenti registrati
+void StampaUtenti()
+{
+    Console.WriteLine("------------");
+    Console.WriteLine("--- LISTA DEGLI UTENTI ---");
+
+    foreach (var utente in listaIscritti)
+    {
+        Console.WriteLine(" ");
+        Console.WriteLine("------------");
+        Console.WriteLine("NOME: " + utente.Nome);
+        Console.WriteLine("COGNOME: " + utente.Cognome);
+        Console.WriteLine("EMAIL: " + utente.Email);
+        Console.WriteLine("------------");
+    }
+}
+
+// Menu inziale
+int MenuIniziale()
+{
+    Console.WriteLine("Benvenuto!");
+    Console.WriteLine("Cosa vuoi fare?");
+    Console.WriteLine("1 - Stampare Lista Utenti Registrari");
+    Console.WriteLine("2 - Stampare Lista Libri");
+    Console.WriteLine("3 - Stampare Lista DVD");
+    Console.WriteLine("4 - Prendi in prestito un prodotto");
+
+    int sceltaMenu = Convert.ToInt32(Console.ReadLine());
+
+    return sceltaMenu;
+}
+
+// Scelta su che tipo di prodotto prendere in prestito Libro/DVD
+int MenuTipoPrestito()
+{
+    Console.WriteLine("Cosa vuoi prendere in prestito?");
+    Console.WriteLine("1 - DVD");
+    Console.WriteLine("2 - Libro");
+
+    int sceltaMenuPrestito = Convert.ToInt32(Console.ReadLine());
+
+    return sceltaMenuPrestito;
+}
+
+// Scelta su come ricercare il prodotto Nome/Codice
+int MenuRicercaProdotto()
+{
+    Console.WriteLine(" ");
+    Console.WriteLine("------------");
+    Console.WriteLine("Come desideri ricercare il prodotto?");
+    Console.WriteLine("1 - Nome");
+    Console.WriteLine("2 - Codice Prodotto");
+
+    int sceltaTipoRicerca = Convert.ToInt32(Console.ReadLine());
+
+    return sceltaTipoRicerca;
+
 }
