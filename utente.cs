@@ -25,18 +25,18 @@
 // Lista di utenti registrati
 public class utente
 {
-    private string cognome;
-    private string nome;
-    private string email;
-    private string password;
-    private string telefono;
+    public string Cognome { get; set; }
+    public string Nome { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string Telefono { get; set; }
 
     public utente(string cognome, string nome, string email, string password, string telefono)
     {
-        this.cognome = cognome;
-        this.nome = nome;
-        this.email = email;
-        this.password = password;
-        this.telefono = telefono;
+        this.Cognome = cognome;
+        this.Nome = nome;
+        this.Email = email;
+        this.Password = password;
+        this.Telefono = telefono;
     }
 }

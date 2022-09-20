@@ -25,22 +25,22 @@
 // Lista di utenti registrati
 public class prodotto
 {
-    private string codice;
-    private string titolo;
-    private int anno;
-    private string settore;
-    private bool èDisponibile;
-    private int scaffale;
-    private string autore;
+    protected string Codice { get; set; }
+    protected string Titolo { get; set; }
+    protected int Anno { get; set; }
+    protected string Settore { get; set; }
+    protected bool EDisponibile { get; set; }
+    protected int Scaffale { get; set; }
+    protected string Autore{ get; set; }
 
-    public prodotto(string codice, string titolo, int anno, string settore, bool èDisponibile, int scaffale, string autore)
+public prodotto(string codice, string titolo, int anno, string settore, bool èDisponibile, int scaffale, string autore)
     {
-        this.codice = codice;
-        this.titolo = titolo;
-        this.anno = anno;
-        this.settore = settore;
-        this.èDisponibile = èDisponibile;
-        this.scaffale = scaffale;
-        this.autore = autore;
+        this.Codice = codice;
+        this.Titolo = titolo;
+        this.Anno = anno;
+        this.Settore = settore;
+        this.EDisponibile = èDisponibile;
+        this.Scaffale = scaffale;
+        this.Autore = autore;
     }
 }
