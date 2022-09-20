@@ -23,7 +23,7 @@
 //Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di un utente.
 
 // Lista di utenti registrati
-public class DVD : prodotto
+public class DVD : Prodotto
 {
     protected int Durata { get; set; }
 
