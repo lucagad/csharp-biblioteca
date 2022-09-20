@@ -124,9 +124,14 @@ switch (scelta)
         Console.WriteLine("Inserisci il tuo Cognome");
         string cognome = Console.ReadLine();
 
+        Console.WriteLine(" ");
+        Console.WriteLine("Inserisci la tua Email");
+        string email = Console.ReadLine();
+
         foreach (var utente in listaIscritti)
         {
-            if ((utente.Nome == nome) & (utente.Cognome == cognome)){
+            if ((utente.Nome == nome) & (utente.Cognome == cognome) & (utente.Email == email))
+            {
                 Console.WriteLine(" ");
                 Console.WriteLine("------------");
                 Console.WriteLine("Essendo registrato puoi procedere con la scelta del prodotto!");
