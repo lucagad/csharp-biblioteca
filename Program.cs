@@ -40,11 +40,14 @@ listaIscritti.Add(utente2);
 listaIscritti.Add(utente3);
 
 // Creazione di libri di test
-Libro libro1 = new Libro("1000000", "Titolo Libro", 2020, "Settore test", true, 2,"Autore Libro",200);
+Libro libro1 = new Libro("1000001", "Titolo Libro 1", 2020, "Fantasy", true, 1,"Autore 1",100);
+Libro libro2 = new Libro("1000002", "Titolo Libro 2", 2020, "Thriller", false, 2, "Autore 2", 200);
 listaLibri.Add(libro1);
+listaLibri.Add(libro2);
 
 // Creazione di DVD di test
-DVD DVD1 = new DVD(180, "1000000", "Titolo DVD", 2020, "Settore test", true, 2, "Autore DVD", 200);
+DVD DVD1 = new DVD(120, "2000001", "Titolo DVD 1", 2020, "Fantasy", true, 1, "Regista 1");
+DVD DVD2 = new DVD(180, "2000002", "Titolo DVD 2", 2020, "Thriller", false, 2, "Regista 2");
 listaDVD.Add(DVD1);
 
 
@@ -64,6 +67,7 @@ switch (scelta)
         #region
         foreach (var utente in listaIscritti)
 		{
+            Console.WriteLine(" ");
             Console.WriteLine("------------");
             Console.WriteLine("NOME: "  + utente.Nome); 
 			Console.WriteLine("COGNOME: " + utente.Cognome);
@@ -77,6 +81,7 @@ switch (scelta)
         #region
         foreach (var libro in listaLibri)
         {
+            Console.WriteLine(" ");
             Console.WriteLine("------------");
             Console.WriteLine("TITOLO: " + libro.Titolo);
             Console.WriteLine("AUTORE: " + libro.Autore);
@@ -84,6 +89,8 @@ switch (scelta)
             Console.WriteLine("ANNO: " + libro.Anno);
             Console.WriteLine("PAGINE: " + libro.Pagine);
             Console.WriteLine("SCAFFALE: " + libro.Scaffale);
+            if (libro.EDisponibile == true) { Console.WriteLine("DISPONIBILE: SI");}
+            else Console.WriteLine("DISPONIBILE: NO");
             Console.WriteLine("------------");
         }
         break;
@@ -92,6 +99,7 @@ switch (scelta)
         #region
         foreach (var dvd in listaDVD)
         {
+            Console.WriteLine(" ");
             Console.WriteLine("------------");
             Console.WriteLine("TITOLO: " + dvd.Titolo);
             Console.WriteLine("AUTORE: " + dvd.Autore);
@@ -99,6 +107,8 @@ switch (scelta)
             Console.WriteLine("ANNO: " + dvd.Anno);
             Console.WriteLine("DURATA: " + dvd.Durata + " Minuti");
             Console.WriteLine("SCAFFALE: " + dvd.Scaffale);
+            if (dvd.EDisponibile == true) { Console.WriteLine("DISPONIBILE: SI"); }
+            else Console.WriteLine("DISPONIBILE: NO");
             Console.WriteLine("------------");
         }
         break;
