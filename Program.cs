@@ -111,6 +111,8 @@ switch (scelta)
                         // 1 NOME / 2 CODICE
                         int sceltaTipoRicercaDVD = MenuRicercaProdotto();
 
+                        
+
 
                         break;
 
@@ -119,6 +121,19 @@ switch (scelta)
 
                         // 1 NOME / 2 CODICE
                         int sceltaTipoRicercaLibro = MenuRicercaProdotto();
+
+                        string chiaveRicercaLibro = InserimentoNomeCodice();
+
+                        if (sceltaTipoRicercaLibro == 1)
+                        {
+                            CercaLibro(sceltaTipoRicercaLibro, chiaveRicercaLibro);
+
+                        } else if (sceltaTipoRicercaLibro == 2) {
+
+                            CercaLibro(sceltaTipoRicercaLibro, Convert.ToString( chiaveRicercaLibro));
+                        }
+
+
 
                         break;
 
@@ -167,6 +182,66 @@ void StampaLibri()
         else Console.WriteLine("DISPONIBILE: NO");
         Console.WriteLine("------------");
     }
+}
+
+// Stampa tutti i Libri del "DB"
+void CercaLibro(int tipoRicerca , string chiaveRicerca)
+{
+    Console.WriteLine("------------");
+    Console.WriteLine("--- RISULTATI RICERCA ---");
+    bool risultati = false;
+
+    foreach (var libro in listaLibri)
+    {
+        if(tipoRicerca == 1){
+
+            if (libro.Titolo == chiaveRicerca)
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("------------");
+                Console.WriteLine("TITOLO: " + libro.Titolo);
+                Console.WriteLine("AUTORE: " + libro.Autore);
+                Console.WriteLine("GENERE: " + libro.Settore);
+                Console.WriteLine("ANNO: " + libro.Anno);
+                Console.WriteLine("PAGINE: " + libro.Pagine);
+                Console.WriteLine("SCAFFALE: " + libro.Scaffale);
+                if (libro.EDisponibile == true) { Console.WriteLine("DISPONIBILE: SI"); }
+                else Console.WriteLine("DISPONIBILE: NO");
+                Console.WriteLine("------------");
+                risultati = true;
+                break;
+
+            }
+
+        } else if (tipoRicerca == 2){
+
+            if (libro.Codice == chiaveRicerca)
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("------------");
+                Console.WriteLine("TITOLO: " + libro.Titolo);
+                Console.WriteLine("AUTORE: " + libro.Autore);
+                Console.WriteLine("GENERE: " + libro.Settore);
+                Console.WriteLine("ANNO: " + libro.Anno);
+                Console.WriteLine("PAGINE: " + libro.Pagine);
+                Console.WriteLine("SCAFFALE: " + libro.Scaffale);
+                if (libro.EDisponibile == true) { Console.WriteLine("DISPONIBILE: SI"); }
+                else Console.WriteLine("DISPONIBILE: NO");
+                Console.WriteLine("------------");
+                risultati = true;
+                break;
+            }
+        }
+
+    }
+
+    if(risultati == false)
+    {
+        Console.WriteLine(" ");
+        Console.WriteLine("------------");
+        Console.WriteLine("La Ricerca non ha prodotto un risultato");
+    }
+    
 }
 
 // Stampa tutti i DVD del "DB"
@@ -247,5 +322,19 @@ int MenuRicercaProdotto()
     int sceltaTipoRicerca = Convert.ToInt32(Console.ReadLine());
 
     return sceltaTipoRicerca;
+
+}
+
+
+// Inseritmento Nome/Codice
+string InserimentoNomeCodice()
+{
+    Console.WriteLine(" ");
+    Console.WriteLine("------------");
+    Console.WriteLine("Inserisci la chiave di ricerca: ");
+
+    string chiaveinserita = Console.ReadLine();
+
+    return chiaveinserita;
 
 }
