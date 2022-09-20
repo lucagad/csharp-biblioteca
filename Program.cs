@@ -53,27 +53,30 @@ listaDVD.Add(DVD1);
 
 int scelta = MenuIniziale();
 
-
 switch (scelta)
 {
-	case 1:
+    //Stampare Lista Utenti Registrari
+    case 1:
         #region
-        StampaUtenti();
-        break;
-        #endregion
-
-    case 2:
-        #region
-        StampaLibri();
-        break;
-        #endregion
-
-    case 3:
-        #region
-        StampaDVD();
+            StampaUtenti();
         break;
     #endregion
 
+    // Stampare Lista Libri
+    case 2:
+        #region
+            StampaLibri();
+        break;
+    #endregion
+
+    //Stampare Lista DVD
+    case 3:
+        #region
+            StampaDVD();
+        break;
+    #endregion
+
+    //Prendi in prestito un prodotto
     case 4:
 
         Console.WriteLine(" ");
@@ -120,6 +123,8 @@ switch (scelta)
                         break;
 
                     default:
+
+                        Console.WriteLine("Scelta non prevista!");
                         break;
 
                 }
@@ -137,7 +142,8 @@ switch (scelta)
         break;
 
     default:
-		break;
+        Console.WriteLine("Scelta non prevista!");
+        break;
 }
 
 // Stampa tutti i Libri del "DB"
